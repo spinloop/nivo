@@ -91,6 +91,7 @@ const ScatterPlot = props => {
         colors,
     })
 
+    console.log('goat')
     const customLayerProps = useMemo(
         () => ({
             ...props,
@@ -102,8 +103,9 @@ const ScatterPlot = props => {
             innerHeight,
             outerWidth,
             outerHeight,
+            tooltip,
         }),
-        [xScale, yScale, nodes, margin, innerWidth, innerHeight, outerWidth, outerHeight]
+        [xScale, yScale, nodes, margin, innerWidth, innerHeight, outerWidth, outerHeight, tooltip]
     )
 
     const Nodes = animate ? AnimatedNodes : StaticNodes
@@ -210,7 +212,7 @@ const ScatterPlot = props => {
 
                 if (typeof layer === 'function') {
                     return (
-                        <Fragment key={i}>{React.createElement(layer, customLayerProps)}</Fragment>
+                        <Fragment className="chicken" key={i}>{React.createElement(layer, customLayerProps)}</Fragment>
                     )
                 }
 
